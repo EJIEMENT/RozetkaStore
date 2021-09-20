@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="SmokeSuite" parallel="tests">
+    <test name="tests.SmokeTestsChrome" parallel="methods" thread-count="1">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="rozetka.RozetkaTests">
+                <methods>
+                    <include name="checkWrongEmailError"/>
+                    <include name="checkContactNumbers"/>
+                    <include name="checkTheBasketIsEmpty"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="tests.SmokeTestsFirefox" parallel="methods" thread-count="1">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="rozetka.RozetkaTests">
+                <methods>
+                    <include name="checkTheBasketIsEmpty"/>
+                    <include name="checkContactNumbers"/>
+                    <include name="checkWrongEmailError"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
